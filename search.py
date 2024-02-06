@@ -1,36 +1,39 @@
-def generate_message(theme, target_audience, level):
-    message = (
-        f"Theme: {theme}\nTarget Audience: {target_audience}\nLevel: {level}\n"
-    )
-
-    if level.lower() == "for a 5-year-old child":
-        message += "This is a simple and fun introduction to the chosen theme, suitable for a young child."
-
-    elif (
-        level.lower()
-        == "for a middle-aged lady with a doctorate in astrophysics"
-    ):
-        message += "This content is designed to provide an intellectually stimulating exploration of the chosen theme, catering to someone with a strong background in astrophysics."
-
+def add_to_list(my_list, item):
+    if item not in my_list:
+        my_list.append(item)
+        print(f"{item_to_add} added to the list: {my_list}")
+        return True
     else:
-        message += "Custom message for the specified theme, target audience, and level."
+        print(f"{item_to_add} already exists in the list: {my_list}")
+        return False
 
-    print(message)
 
+my_list = [1, 2, 3, 4]
+item_to_add = 5
 
-# Example usage:
-generate_message(
-    "Space Exploration", "5-year-old child", "for a 5-year-old child"
-)
-generate_message(
-    "Astrophysics",
-    "Middle-aged lady",
-    "for a middle-aged lady with a doctorate in astrophysics",
-)
-generate_message("Custom Theme", "Custom Audience", "Custom Level")
+result = add_to_list(my_list, item_to_add)
 
+if result:
+    print(f"{item_to_add} added to the list: {my_list}")
+else:
+    print(f"{item_to_add} already exists in the list: {my_list}")
+temas = []
+publicos_alvos = []
+nivel = []
+livro = []
+i = 0
 while True:
-    user_input = input("Enter something: ")
-    print("You entered:", user_input)
-    if user_input == "PAU":
+    user_input = input("Tema: ")
+    temas.append(user_input)
+    user_input = input("Público Alvo: ")
+    publicos_alvos.append(user_input)
+    user_input = input("Nível: ")
+    nivel.append(user_input)
+    matriz_suport = [temas[i], publicos_alvos[i], nivel[i]]
+    livro.append(matriz_suport)
+    print("Você adicionou esse livro:", livro[i])
+    user_input = input("Inserir outro livro?: ")
+    if user_input.lower() == "n":
         break
+    if user_input.lower() == "s":
+        i += 1
